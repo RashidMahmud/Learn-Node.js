@@ -1,8 +1,22 @@
 
 [
-    {
-        "id":1,
-        "name": "Product 1",
-        "price": 999
-    }
+  {
+    "id": 1,
+    "name": "Apple AirPods Pro (2nd Gen)",
+    "price": 249,
+    "description": "Premium wireless earbuds with active noise cancellation, adaptive transparency, and immersive spatial audio."
+  },
+  {
+    "id": 2,
+    "name": "Samsung Galaxy S24 Ultra",
+    "price": 1299,
+    "description": "Flagship Android smartphone featuring a powerful camera system, S Pen support, and AI-powered performance."
+  },
+  {
+    "id": 3,
+    "name": "Sony WH-1000XM5",
+    "price": 399,
+    "description": "Industry-leading noise cancelling headphones with crystal-clear sound quality and long-lasting battery life."
+  }
 ]
+

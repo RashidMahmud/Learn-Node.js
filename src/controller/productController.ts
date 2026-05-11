@@ -1,5 +1,6 @@
 import type { IncomingMessage, ServerResponse } from "node:http";
 import { readProduct } from "../service/product-service";
+import type { IProduct } from "../types/product-type";
 
 export const productController = (req:IncomingMessage, res:ServerResponse) => {
     const url = req.url
@@ -25,7 +26,9 @@ export const productController = (req:IncomingMessage, res:ServerResponse) => {
         JSON.stringify(
             {message:"Products retrieved successfully",
             data:products,}))
-} else if(method === "GET"){
-
+} else if(method === "GET" && id!== null){
+    const products =readProduct();
+    const product = products.find((p: IProduct)=> p.id === id)
+    console.log(product)
 }
 }
