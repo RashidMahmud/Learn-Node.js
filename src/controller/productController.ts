@@ -3,7 +3,13 @@ import { readProduct } from "../service/product-service";
 
 export const productController = (req:IncomingMessage, res:ServerResponse) => {
     const url = req.url
-const method = req.method
+    const method = req.method
+
+    const urlParts = url?.split("/");
+    // console.log(urlParts)
+    const id = urlParts && urlParts[1] === 'products' ? Number (urlParts[2]) : null;
+    console.log("This is the actual id : ", id)
+                                    // Get all products
  if(url === "/products" && method === "GET"){
 
     // const products = [
@@ -18,6 +24,8 @@ const method = req.method
     res.end(
         JSON.stringify(
             {message:"Products retrieved successfully",
-            data:{products}}))
+            data:products,}))
+} else if(method === "GET"){
+
 }
 }
