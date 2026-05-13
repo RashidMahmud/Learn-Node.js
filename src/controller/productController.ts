@@ -1,8 +1,10 @@
 import type { IncomingMessage, ServerResponse } from "node:http";
 import { readProduct } from "../service/product-service";
 import type { IProduct } from "../types/product-type";
+import { parseBody } from "../utility/parseBody";
 
-export const productController = (req:IncomingMessage, res:ServerResponse) => {
+export const productController = async(req:IncomingMessage, res:ServerResponse) => {
+    console.log("Request", req);
     const url = req.url
     const method = req.method
 
@@ -29,6 +31,22 @@ export const productController = (req:IncomingMessage, res:ServerResponse) => {
 } else if(method === "GET" && id!== null){
     const products =readProduct();
     const product = products.find((p: IProduct)=> p.id === id)
-    console.log(product)
+    // console.log(product)
+
+    res.writeHead(200, {"content-type": "application/json"})
+    res.end(
+        JSON.stringify(
+            {message:"Products retrieved successfully",
+            data:product,}))
+}  else if (method === "POST" && url === "/products"){
+        const body = await parseBody(req);
+        console.log(body);
+        res.writeHead(200, {"content-type": "application/json"})
+        res.end(
+        JSON.stringify(
+            {message:"Products retrieved successfully",
+            // data:product,
+        }))
 }
-}
+
+};
