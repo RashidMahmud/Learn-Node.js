@@ -17,6 +17,12 @@
     "name": "Sony WH-1000XM5",
     "price": 399,
     "description": "Industry-leading noise cancelling headphones with crystal-clear sound quality and long-lasting battery life."
+  },
+  {
+    "id": 4,
+    "name": "Sony WH-1000XM5",
+    "price": 399,
+    "description": "Industry-leading noise cancelling headphones with crystal-clear sound quality and long-lasting battery life."
   }
 ]
 
